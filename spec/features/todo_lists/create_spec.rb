@@ -43,7 +43,7 @@ describe "creating to do lists" do
 		expect(page).to_not have_content("This is what I do.")
 	end
 
-	it "displays an error when the todo list has no description" do
+		it "displays an error when the todo list has no description" do
 		expect(TodoList.count).to eq(0)
 
 		create_to_do_list title: "Grocery List", description: ""
