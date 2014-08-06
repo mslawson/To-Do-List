@@ -1,4 +1,7 @@
+<h5><%= link_to "Home", root_path %></h5>
+
 <h1><%= @todo_list.title %></h1>
+<h3><%= @todo_list.description %></h3>
 
 <ul class="todo_items">
 	<% @todo_list.todo_items.each do |item| %>

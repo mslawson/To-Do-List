@@ -19,8 +19,27 @@ describe "Adding todo items" do
 		within "ul.todo_items" do
 			expect(page).to have_content("Milk")
 		end
-		
 	end
 
+	it "displays an error with no content" do 
+		visit_todo_list(todo_list)
+		click_link "New Todo Item"
+		fill_in "Content", with: ""
+		click_button "Save"
+		within "div.flash" do
+			expect(page).to have_content("There was a problem with adding that todo.")
+		end
+		expect(page).to have_content("Content can't be blank")  
+	end
 
+	it "displays an error when item is not at least 3 characters" do 
+		visit_todo_list(todo_list)
+		click_link "New Todo Item"
+		fill_in "Content", with: "ab"
+		click_button "Save"
+		within "div.flash" do
+			expect(page).to have_content("There was a problem with adding that todo.")
+		end
+		expect(page).to have_content("Content is too short ")  
+	end
 end
