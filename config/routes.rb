@@ -1,8 +1,14 @@
 Odot::Application.routes.draw do
   resources :todo_lists do
-    resources :todo_items
+    resources :todo_items do
+      member do
+        patch :complete
+      end
+    end
   end
   root 'todo_lists#index'
+
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
