@@ -2,9 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-table.todo_lists{
-	width: 100%;
-	th {
-		text-align: left;
+div.todo_lists{
+	border: 1px solid #eee;
+	border-radius: 4px;
+	margin: 1em 0 1em 0;
+	padding: 2em;
+
+	ul.functions{
+		margin: 1em 0 0 0;
+		padding: 0;
+		float: left;
+		list-style: none;
+		font-size: 0.9em;
+		clear: both;
+
+		li{
+			margin: 0 1em 0 0;
+			padding: 0;
+			float: left;
+		}
 	}
 }
