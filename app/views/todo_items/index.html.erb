@@ -14,7 +14,7 @@
 		<tr id="<%= dom_id(todo_item) %>">
 			<td>
 				<% if todo_item.completed? %>
-				<%= todo_item.completed_at %> 
+				<%= todo_item.completed_at.strftime("%m/%d/%Y") %> 
 				<% else %>
 				<%= link_to 'Mark Complete', complete_todo_list_todo_item_path(todo_item), method: :patch %>
 				<% end %>
