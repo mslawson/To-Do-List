@@ -20,7 +20,7 @@ describe "Completing todo items" do
     it "shows completed items as complete" do
       visit_todo_list todo_list
       within dom_id_for(completed_todo_item) do
-        expect(page).to have_content(completed_todo_item.completed_at)
+        expect(page).to have_content(completed_todo_item.completed_at.strftime("%m/%d/%Y"))
       end
     end
 
