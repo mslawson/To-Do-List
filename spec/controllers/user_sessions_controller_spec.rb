@@ -48,7 +48,13 @@ describe UserSessionsController do
         post :create, email: "jason@teamtreehouse.com", password: "treehouse1" 
         expect(flash[:success]).to  eq("Thanks for logging in!")
       end
+
+      it "sets the session user_id to the created user" do
+        post :create, email: "jason@teamtreehouse.com", password: "treehouse1" 
+        expect(session[:user_id]).to eq(User.find_by(email: valid_attributes[:email].id))  
+      end
     end
+
 
     shared_examples_for "denied login" do
       it "renders the new template" do
