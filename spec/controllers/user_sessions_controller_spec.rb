@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe UserSessionsController do
 
+
+
   describe "GET 'new'" do
     it "returns http success" do
       get 'new'
@@ -49,10 +51,6 @@ describe UserSessionsController do
         expect(flash[:success]).to  eq("Thanks for logging in!")
       end
 
-      it "sets the session user_id to the created user" do
-        post :create, email: "jason@teamtreehouse.com", password: "treehouse1" 
-        expect(session[:user_id]).to eq(User.find_by(email: valid_attributes[:email].id))  
-      end
     end
 
 
@@ -64,7 +62,7 @@ describe UserSessionsController do
 
       it "sets the flash error mesage" do
         post :create
-        expect(flash[:error]).to  eq("Sorry you must be a registered user.")
+        expect(flash[:error]).to  eq("Please check your email and password")
       end
     end
 
