@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe "deleting to do lists" do 
-	let(:user) {create(:user)}
-	let!(:todo_list) {TodoList.create(title: "Groceries", description: "Grocery List.")}
+	let(:user) { todo_list.user }
+	let!(:todo_list) {create(:todo_list)}
 
 	before do
 		sign_in user, password: "treehouse1"

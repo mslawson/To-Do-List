@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe "editing to do lists" do 
-	let(:user) {create(:user)}
-	let!(:todo_list) {TodoList.create(title: "Groceries", description: "Grocery List.")}
+	let(:user) { todo_list.user }
+	let!(:todo_list) {create(:todo_list)}
 
 
 	def update_to_do_list(options={})
@@ -21,7 +21,7 @@ describe "editing to do lists" do
 	end
 
 	before do
-		sign_in user, password: "treehouse1"
+		sign_in todo_list.user, password: "treehouse1"
 	end
 
 	it "updates a to-do list successfully with correct information" do
